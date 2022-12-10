@@ -14,6 +14,12 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         })
     }
+    // listening to a keydown for enter
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    })
 
     runGame("addition");
 })
@@ -23,6 +29,10 @@ document.addEventListener("DOMContentLoaded", function() {
  * and after the users answer has been processed
  */
 function runGame(gameType) {
+    //each time you run the game the answer box will be empty
+    document.getElementById("answer-box").value = "";
+    //each time you run the game the cursos will be on the box
+    document.getElementById("answer-box").focus();
 
     // Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
